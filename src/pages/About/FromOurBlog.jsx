@@ -1,0 +1,54 @@
+import { Box, CardMedia, Grid, Stack, Typography } from "@mui/material";
+import React from "react";
+
+const FromOurBlog = () => {
+    const images = [
+        {
+            image: 'https://images.pexels.com/photos/1144834/pexels-photo-1144834.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        },
+        {
+            image: 'https://images.pexels.com/photos/1154861/pexels-photo-1154861.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        },
+        {
+            image: 'https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        }
+    ]
+
+  return (
+    <Box>
+      <Stack sx={{ textAlign: "center" }} orientation="vertical">
+        <Typography sx={{ color: "orange", fontSize: "15px" }}>
+          RECENT NEWS
+        </Typography>
+        <Typography sx={{ fontWeight: 500, fontSize: "35px", mb: 5 }}>
+          From Our Blog
+        </Typography>
+      </Stack>
+
+      <Box sx={{ px: 10 }}>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          {images.map((image, index) => (
+            <Grid item xs={2} sm={4} md={4} key={index} sx={{}}>
+              <CardMedia
+                sx={{ height: 250, mb:1 }}
+                image={image.image}
+                title="image"
+              />
+              <Typography sx={{ fontSize:'15px', color:'gray' }}>
+                27 NOV, 2020 <u>FASHION</u> , <u>TREND</u>
+              </Typography>
+              <Typography sx={{ fontWeight:'600',fontSize:'22px' }}>Clothing Stores understands the human nature of presenting</Typography>
+              <Typography sx={{ fontSize:'15px' }}>READ MORE</Typography>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Box>
+  );
+};
+
+export default FromOurBlog;
