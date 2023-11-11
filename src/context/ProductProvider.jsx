@@ -3,6 +3,7 @@ export const ProductContext = createContext();
 
 const ProductProvider = ({children}) => {
     const [productsList, setProductsList] = useState([]);
+    // console.log(productsList)
     const [filteredProducts, setFilteredProducts] = useState([]);
 
     // fetch data from api

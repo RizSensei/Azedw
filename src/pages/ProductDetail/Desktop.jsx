@@ -1,30 +1,46 @@
 import {
   Box,
   Button,
+  Card,
+  CardContent,
   CardMedia,
+  Grid,
   ListItem,
   ListItemText,
   Rating,
   Stack,
   TextField,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { AppContext } from "../../context/AppProvider";
+import { useTheme } from "@emotion/react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/features/userSlice";
+import RelatedProduct from "../../components/RelatedProduct/RelatedProduct";
 
-const Desktop = ({ product }) => {
-  const {
-    wishlistItems,
-    cartItems,
-    handleAddToWishlist,
-    handleAddToCart,
-    cartItemsCount,
-    wishlistItemsCount,
-  } = useContext(AppContext);
+const Desktop = ({ product,productsList }) => {
   const { title, image, description, price, rating } = product;
 
+  const {
+    wishlistItems,
+    handleAddToWishlist,
+    handleAddToCart,
+  } = useContext(AppContext);
+
+
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"), {
+    defaultMatches: true,
+  });
+
+
+
   return (
+    <>
     <Box sx={{ display: "flex", p: 10 }}>
       <Box sx={{ width: { xs: "100%", md: "50%" } }}>
         <CardMedia
@@ -117,6 +133,10 @@ const Desktop = ({ product }) => {
         </ListItem>
       </Box>
     </Box>
+
+    {/* related products */}
+    <RelatedProduct product={product} productsList={productsList}/>
+    </>
   );
 };
 

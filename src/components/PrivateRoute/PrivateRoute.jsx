@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({children}) => {
     const user = useSelector(selectUser);
+    console.log(user)
 
     if(!user){
         return <Navigate to="/account" replace/>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import BannerImage from "../../images/back.jpg";
 import "../../styles/homeStyles.css";
 import { Box } from "@mui/material";
+import AzedwCategories from "./AzedwCategories";
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
           </Link>
         </div>
       </Box>
+      <AzedwCategories/>
     </Layout>
   );
 };

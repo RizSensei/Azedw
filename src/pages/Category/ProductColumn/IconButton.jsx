@@ -5,8 +5,9 @@ const IconButton = ({icon, onClick}) => {
   return (
     <Icon
       sx={{
-        height: "44px",
-        width: "44px",
+        fontSize:'10px',
+        height: "38px",
+        width: "38px",
         p: 1,
         bgcolor: "white",
         color:'black',

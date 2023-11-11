@@ -38,11 +38,11 @@ const FromOurBlog = () => {
                 image={image.image}
                 title="image"
               />
-              <Typography sx={{ fontSize:'15px', color:'gray' }}>
+              <Typography sx={{ fontSize:'12px', color:'gray', mb:1 }}>
                 27 NOV, 2020 <u>FASHION</u> , <u>TREND</u>
               </Typography>
-              <Typography sx={{ fontWeight:'600',fontSize:'22px' }}>Clothing Stores understands the human nature of presenting</Typography>
-              <Typography sx={{ fontSize:'15px' }}>READ MORE</Typography>
+              <Typography sx={{ fontWeight:'550',fontSize:'20px', mb:1 }}>Clothing Stores understands the human nature of presenting</Typography>
+              <Typography sx={{ fontSize:'10px', textDecoration:'underline' }}>READ MORE</Typography>
             </Grid>
           ))}
         </Grid>

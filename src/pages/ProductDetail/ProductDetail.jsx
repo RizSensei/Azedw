@@ -45,7 +45,7 @@ const ProductDetail = () => {
   return (
     <Layout>
       {!isMobile ? (
-        <Desktop product={product}/>
+        <Desktop product={product} productsList={productsList}/>
       ) : (
         <Mobile  product={product}/>
       )}

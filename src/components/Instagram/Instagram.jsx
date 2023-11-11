@@ -79,7 +79,7 @@ const Instagram = () => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h5" sx={{ fontWeight: "600" }}>
+            <Typography variant="h5" sx={{ fontWeight: "500" }}>
               Follow our instagram
             </Typography>
             <Typography sx={{ color: "gray" }}>@aviwp.studio</Typography>

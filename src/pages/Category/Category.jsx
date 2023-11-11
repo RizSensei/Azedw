@@ -8,6 +8,7 @@ import { ProductContext } from "../../context/ProductProvider";
 
 const Category = () => {
 const {productsList,filteredProducts,setFilteredProducts} = useContext(ProductContext)
+console.log(productsList)
   return (
     <Layout>
       <Topbar text='Category' />

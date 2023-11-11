@@ -90,11 +90,10 @@ const FilterColumn = ({ productsList, setFilteredProducts }) => {
                           color:
                             category === selectedCategory ? "white" : "black",
                         },
-                        mb: 1,
                         borderRadius: "2px",
                       }}
                     >
-                      <ListItemText primary={category} />
+                      <ListItemText secondary={category} />
                     </ListItemButton>
                   </ListItem>
                 ))}
