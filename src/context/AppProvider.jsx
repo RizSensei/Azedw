@@ -13,14 +13,13 @@ const AppProvider = ({ children }) => {
       // return toast.error("This product has already been added");
     }
     setWishlistItems((wishlistItems) => [...wishlistItems, {...product, inWishlist: true}]);
-    //   return toast.success("Product added to Wislist");
+      // return toast.success("Product added to Wislist");
   };
 
   const handleAddToCart = (product) => {
     let item = cartItems.find((item) => item.id === product.id);
     if (item) {
       setCartItems((cartItems) => cartItems.map((item) => item.id === product.id ? {...item, quantity: item.quantity + 1} : item));
-      // return toast.error("This product has already been added");
     }else{
       setCartItems((cartItems) => [...cartItems, { ...product, quantity: 1 }]);
     }

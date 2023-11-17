@@ -1,19 +1,4 @@
-import {
-  Box,
-  Typography,
-  Divider,
-  CardContent,
-  Icon,
-  useMediaQuery,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Stack,
-  Grid,
-  Card,
-  CardMedia,
-} from "@mui/material";
+import { Box, Divider, useMediaQuery } from "@mui/material";
 import React, { useContext, useState } from "react";
 import Topbar from "./Topbar";
 import { ToastContainer, toast } from "react-toastify";
@@ -23,6 +8,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../../redux/features/userSlice";
 import GridFormat from "./ProductFormat/GridFormat";
 import ListFormat from "./ProductFormat/ListFormat";
+import Pagination from "../../../components/Pagination/Pagination";
 
 const ProductColumn = ({ filteredProducts, setFilteredProducts }) => {
   const user = useSelector(selectUser);
@@ -85,10 +71,14 @@ const ProductColumn = ({ filteredProducts, setFilteredProducts }) => {
             />
           ) : format == "list" ? (
             <ListFormat
+              user={user}
               filteredProducts={filteredProducts}
               isMobile={isMobile}
+              handleAddToWishlist={handleAddToWishlist}
+              handleAddToCart={handleAddToCart}
             />
           ) : null}
+          <Pagination />
         </Box>
       </Box>
     </>

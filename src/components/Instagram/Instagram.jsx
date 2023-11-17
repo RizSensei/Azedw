@@ -40,7 +40,7 @@ const Instagram = () => {
   ];
 
   return (
-    <Box sx={{ p: {xs:4, md:10} }}>
+    <Box sx={{ p: {xs:4, md:10}, mt:5 }}>
       <Box
         sx={{
           display: "flex",
@@ -53,8 +53,8 @@ const Instagram = () => {
         <ImageList
           sx={{ width: "95%" }}
           xs={3}
-          rowHeight={useMediaQuery(theme.breakpoints.down("md")) ? 200 : 300}
-          cols={useMediaQuery(theme.breakpoints.down("md")) ? 2 : 6}
+          rowHeight={useMediaQuery(theme.breakpoints.down("md")) ? 200 : 250}
+          cols={useMediaQuery(theme.breakpoints.down("md")) ? 3 : 6}
         >
           {images.map((img, index) => (
             <ImageListItem key={index}>
@@ -68,7 +68,7 @@ const Instagram = () => {
             bottom: "-60px",
             bgcolor: "white",
             width: {xs:"300px", md:"400px"},
-            py: {xs:1, md:2},
+            py: {xs:1, md:1},
           }}
         >
           <CardContent
@@ -79,7 +79,7 @@ const Instagram = () => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h5" sx={{ fontWeight: "500" }}>
+            <Typography variant="h6" sx={{ fontWeight: "600" }}>
               Follow our instagram
             </Typography>
             <Typography sx={{ color: "gray" }}>@aviwp.studio</Typography>

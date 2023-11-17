@@ -27,7 +27,7 @@ const AzedwCategories = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        px: 10,
+        px: {xs:5, md:10},
         py: 5,
       }}
     >
@@ -38,10 +38,10 @@ const AzedwCategories = () => {
         Our campaigns, latest trends and new collections
       </Typography>
       <Box sx={{ mt:5 }}>
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 2, md: 3 }}>
           {categories_images.map((item, index) => (
             <Grid item xs={3} key={index}>
-              <Card sx={{ p:5, borderRadius:'0%', boxShadow: 0 ,
+              <Card sx={{ p:{xs:1, md:5}, borderRadius:'0%', boxShadow: 0 ,
             '&:hover': {
                 cursor:'pointer',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',

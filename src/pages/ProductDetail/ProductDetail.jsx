@@ -10,6 +10,8 @@ import { useTheme } from "@emotion/react";
 import { ProductContext } from "../../context/ProductProvider";
 import Desktop from "./Desktop";
 import Mobile from "./Mobile";
+import { selectUser } from "../../redux/features/userSlice";
+import { useSelector } from "react-redux";
 
 const ProductDetail = () => {
   const { productsList } = useContext(ProductContext);
@@ -21,6 +23,7 @@ const ProductDetail = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"), {
     defaultMatches: true,
   });
+
 
   if (!product) {
     // Handle the case where the product is not found

@@ -6,7 +6,7 @@ import FooterTypo from "./FooterTypo";
 const Footer = () => {
   return (
     <>
-      <Box sx={{}}>
+      <Box sx={{mt:10}}>
         <Box sx={{ p: 5, bgcolor: "#f1f1f1" }}>
           <Grid container spacing={3} sx={{ display:'flex', justifyContent:'center' }}  columns={{ xs: 4, sm: 8, md: 12 }}>
 

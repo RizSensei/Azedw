@@ -21,7 +21,7 @@ const Profile = () => {
       }}
     >
       <Avatar sx={{ width: {xs:100, md:200}, height: {xs:100, md:200}, mb:2 }}>A</Avatar>
-      <Typography sx={{ mb:2 }}>You are logged in, {user.username} !!!</Typography>
+      <Typography sx={{ mb:2 }}>You are logged in, {user.data.username} !!!</Typography>
       <Button
         onClick={(e) => handleLogOutClick(e)}
         variant="contained"

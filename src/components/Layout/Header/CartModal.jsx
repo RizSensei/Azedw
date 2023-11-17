@@ -72,12 +72,21 @@ const CartModal = () => {
             {cartItems?.map((item, index) => (
               <Card key={index} sx={{ display: "flex", boxShadow: 0, mb: 1 }}>
                 <Box sx={{ height: "80px" }}>
-                  <CardMedia
-                    sx={{ height: "full", width: "80px", objectFit: "cover" }}
-                    component="img"
-                    image={item.image}
-                    alt={item.title}
-                  />
+                  <Card
+                    style={{
+                      width: 80,
+                      height: 120,
+                      overflow: "hidden",
+                      boxShadow: "none",
+                    }}
+                  >
+                    <CardMedia
+                      sx={{ height: "100%", width: "100%", objectFit: "scale-down" }}
+                      component="img"
+                      image={item.image}
+                      alt={item.title}
+                    />
+                  </Card>
                 </Box>
                 <CardContent>
                   <Typography sx={{ fontSize: "15px" }}>
@@ -118,22 +127,22 @@ const CartModal = () => {
               </Link>
             </div>
 
-            <div style={{ width: "100%" }}>
-            <Link to="/checkout">
-              <Button
-                variant="contained"
-                sx={{
-                  bgcolor: "gray",
-                  color: "white",
-                  py: 1,
-                  width: "100%",
-                  borderRadius: "0%",
-                }}
-              >
-                CHECKOUT
-              </Button>
-            </Link>
-            </div>
+            {/* <div style={{ width: "100%" }}>
+              <Link to="/checkout">
+                <Button
+                  variant="contained"
+                  sx={{
+                    bgcolor: "gray",
+                    color: "white",
+                    py: 1,
+                    width: "100%",
+                    borderRadius: "0%",
+                  }}
+                >
+                  CHECKOUT
+                </Button>
+              </Link>
+            </div> */}
           </Box>
         </Box>
       </Modal>

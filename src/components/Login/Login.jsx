@@ -1,7 +1,5 @@
 import {
   Box,
-  FormControl,
-  InputLabel,
   Typography,
   TextField,
   Checkbox,
@@ -9,7 +7,7 @@ import {
   Card,
   useMediaQuery,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { login } from "../../redux/features/userSlice"
@@ -31,29 +29,19 @@ const Login = ({userData}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let existing_user = userData.find((user) => (loginCredentials.username === user.username && loginCredentials.password === user.password))
-    console.log(existing_user)
+  
     if(existing_user){
-      // localStorage.setItem("username", JSON.stringify(loginCredentials.username));
       dispatch(
         login({
           username: loginCredentials.username,
           password : loginCredentials.password,
-          isAuthenticated: true,
+          // isAuthenticated: true,
         })
       )
     }else{
       return toast.error("Invalid Credentials")
     }
   }
-
-  // useEffect(() => {
-  //   const authData = localStorage.getItem('username');
-  //   if (authData) {
-  //     setIsAuthenticated(true);
-  //   }else{
-  //     setIsAuthenticated(false);
-  //   }
-  // },[isAuthenticated])
 
   return (
     <Card sx={{ width: {xs:"100%", md:"50%"}, p: 5, mb:2 }}>

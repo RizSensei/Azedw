@@ -10,7 +10,6 @@ import { selectUser } from "../../redux/features/userSlice";
 import { useSelector } from "react-redux";
 
 const MyAccount = () => {
-    // const [isAuthenticated, setIsAuthenticated] = useState(false);
     const user = useSelector(selectUser)
     const [userData, setUserData] = useState([])
 
@@ -36,7 +35,7 @@ const MyAccount = () => {
     <Layout>
       <Topbar text="My Account" />
       <Box sx={{ p:{xs:5, md: 10}, display:{xs:'block', md:'flex'}, justifyContent:'center', columnGap:5 }}>
-        {!user  ? 
+        {!user?.isAuthenticated  ? 
         <>
         <Login userData={userData}/>
         <SignUp />

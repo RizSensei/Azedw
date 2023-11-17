@@ -3,18 +3,18 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <Box sx={{ display: "flex", py: 10, px: 5 }}>
+    <Box sx={{ display: {md:"flex"}, py: 10, px: 5 }}>
       <Box
         sx={{
-          height: "100vh",
-          width: "70%",
+          height: {xs:"50vh", md:'100vh'},
+          width: {md:"70%"},
           display: "flex",
           justifyContent: "flex-end",
           position: "relative",
         }}
       >
         <CardMedia
-          sx={{ height: "100%", width: "60%", mb: 1 }}
+          sx={{ height: "100%", width: {xs:'100%', md:"60%"}, mb: 1 }}
           image="https://images.pexels.com/photos/1557843/pexels-photo-1557843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           title="image"
         />
@@ -22,12 +22,12 @@ const AboutUs = () => {
           sx={{
             width: "400px",
             position: "absolute",
-            left: "150px",
+            left: {md:"150px"},
             top: "50px",
             bgcolor: "white",
             py: 10,
             px: 5,
-            opacity: "80%",
+            opacity: {xs:"60%", md:'80%'},
           }}
         >
           <Typography
@@ -46,7 +46,7 @@ const AboutUs = () => {
         </Box>
       </Box>
 
-      <Box sx={{ width: "30%" }}>
+      <Box sx={{ width: {md:"30%"} }}>
         <Box sx={{ p: 5 }}>
           <Typography sx={{ fontWeight: "600", fontSize: "25px" }}>
             Our Mission
@@ -69,10 +69,8 @@ const AboutUs = () => {
         </Box>
         <Box sx={{ px: 5 }}>
           <Button
-            variant="contained"
+            variant="outlined"
             sx={{
-              bgcolor: "black",
-              color: "white",
               fontWeight: "600",
               borderRadius: "0%",
               fontSize: "15px",

@@ -25,23 +25,23 @@ const FromOurBlog = () => {
         </Typography>
       </Stack>
 
-      <Box sx={{ px: 10 }}>
+      <Box sx={{ px: {xs:4, md:10} }}>
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
+          columns={{ xs: 12 }}
         >
           {images.map((image, index) => (
-            <Grid item xs={2} sm={4} md={4} key={index} sx={{}}>
+            <Grid item xs={4} md={4} key={index} sx={{}}>
               <CardMedia
-                sx={{ height: 250, mb:1 }}
+                sx={{ height: {xs:150, md:250}, mb:1 }}
                 image={image.image}
                 title="image"
               />
               <Typography sx={{ fontSize:'12px', color:'gray', mb:1 }}>
                 27 NOV, 2020 <u>FASHION</u> , <u>TREND</u>
               </Typography>
-              <Typography sx={{ fontWeight:'550',fontSize:'20px', mb:1 }}>Clothing Stores understands the human nature of presenting</Typography>
+              <Typography sx={{ fontWeight:'550',fontSize:{xs:'15px',md:'20px'}, mb:1 }}>Clothing Stores understands the human nature of presenting</Typography>
               <Typography sx={{ fontSize:'10px', textDecoration:'underline' }}>READ MORE</Typography>
             </Grid>
           ))}

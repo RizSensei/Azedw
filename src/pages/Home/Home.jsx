@@ -1,31 +1,26 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
 import { Link } from "react-router-dom";
-import BannerImage from "../../images/back.jpg";
 import "../../styles/homeStyles.css";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import AzedwCategories from "./AzedwCategories";
+import Collection from "./Collection";
+import Trending from "./Trending";
+import Cover from "./Cover";
+import { useTheme } from "@emotion/react";
 
 const Home = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"), {
+    defaultMatches: true,
+  });
+
   return (
     <Layout>
-      <Box
-        className="home"
-        style={{
-          backgroundImage: `url("https://images.pexels.com/photos/445109/pexels-photo-445109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`,
-          backgroundSize: "cover",
-          height: "100vh",
-        }}
-      >
-        <div className="headerContainer">
-          <h1>Stylish Klothes</h1>
-          <p>Best Klothes In Nepal</p>
-          <Link to="/menu">
-            <button>Order Now</button>
-          </Link>
-        </div>
-      </Box>
+      <Cover/>
+      <Collection theme ={theme}/>
       <AzedwCategories/>
+      {/* <Trending/> */}
     </Layout>
   );
 };

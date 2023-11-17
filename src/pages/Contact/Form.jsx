@@ -11,9 +11,9 @@ import {
 } from "@mui/material";
 import React from "react";
 
-const Form = () => {
+const Form = ({theme}) => {
   return (
-    <Box>
+    <Box sx={{ p:{xs:5, md:0} }}>
       <Typography variant="h4" sx={{ fontWeight: "600", mb: 2 }}>
         Let's talk to us
       </Typography>
@@ -57,7 +57,7 @@ const Form = () => {
               style={{ width: "100%" }}
             />
           </Grid>
-          <Button variant="contained" sx={{ bgcolor: "gray" }}>
+          <Button variant="contained" sx={{ bgcolor: "#3b82f6" }}>
             SUBMIT IT NOW
           </Button>
         </Grid>

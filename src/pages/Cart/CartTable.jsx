@@ -22,7 +22,7 @@ import React from "react";
 import CartTableDesktop from "./CartTableDesktop";
 import CartTableMobile from "./CartTableMobile";
 
-const CartTable = ({ cartItems, setCartItems, setCartItemsCount }) => {
+const CartTable = ({ cartItems, setCartItems, setCartItemsCount,handleCartToCheckout }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"), {
     defaultMatches: true,
@@ -60,7 +60,7 @@ const CartTable = ({ cartItems, setCartItems, setCartItemsCount }) => {
   return (
     <Box sx={{ p: { xs: 1, md: 10 } }}>
       {!isMobile ? (
-        <CartTableDesktop cartItems={cartItems} setCartItems={setCartItems} onDecreaseClick={onDecreaseClick} onIncreaseClick={onIncreaseClick} onDeleteClick={onDeleteClick}/>
+        <CartTableDesktop cartItems={cartItems} setCartItems={setCartItems} onDecreaseClick={onDecreaseClick} onIncreaseClick={onIncreaseClick} onDeleteClick={onDeleteClick} handleCartToCheckout={handleCartToCheckout}/>
       ) : (
         <CartTableMobile cartItems={cartItems} setCartItems={setCartItems} onDecreaseClick={onDecreaseClick} onIncreaseClick={onIncreaseClick} onDeleteClick={onDeleteClick}/>
       )}

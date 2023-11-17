@@ -5,9 +5,9 @@ import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({children}) => {
     const user = useSelector(selectUser);
-    console.log(user)
+    // console.log(user.isAuthenticated)
 
-    if(!user){
+    if(!user.isAuthenticated){
         return <Navigate to="/account" replace/>
     }
   return children;

@@ -32,7 +32,7 @@ const TrackerButtons = () => {
         </Link>
       </Tooltip>
 
-      {user ? <Tooltip title="Wishlist" placement="top">
+      {user.isAuthenticated ? <Tooltip title="Wishlist" placement="top">
         <Link to="/wishlist">
           <Button sx={{ position: "relative" }}>
             <FavoriteBorderIcon />
