@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 const MyAccount = () => {
     const user = useSelector(selectUser)
     const [userData, setUserData] = useState([])
+    // console.log(userData)
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'), {
@@ -38,7 +39,7 @@ const MyAccount = () => {
         {!user?.isAuthenticated  ? 
         <>
         <Login userData={userData}/>
-        <SignUp />
+        <SignUp userData={userData}/>
         </>
         :
         <>

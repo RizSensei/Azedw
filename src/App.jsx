@@ -9,7 +9,7 @@ import MyAccount from "./pages/Account/MyAccount";
 import Cart from "./pages/Cart/Cart";
 import WishList from "./pages/WishList/WishList";
 import Checkout from "./pages/Checkout/Checkout";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/Error/NotFound";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {

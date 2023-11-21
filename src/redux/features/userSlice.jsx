@@ -4,7 +4,7 @@ const localStorageUser =
   localStorage.getItem("user") !== null
     ? JSON.parse(localStorage.getItem("user"))
     : null;
-console.log(localStorageUser)
+// console.log(localStorageUser)
 
 export const userSlice = createSlice({
   name: "user",

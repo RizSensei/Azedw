@@ -5,6 +5,7 @@ import {
   Typography,
   Grid,
   Box,
+  Stack,
 } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -22,7 +23,7 @@ const GridFormat = ({
   return (
     <Grid container rowSpacing={5} columnSpacing={{ xs: 1, sm: 2, md: 6 }}>
       {filteredProducts?.map((product) => (
-        <Grid item key={product.id} xs={6} sm={6} md={4}>
+        <Grid item key={product.id} xs={12} sm={6} md={4}>
           <Card
             sx={{
               boxShadow: "none",
@@ -30,15 +31,17 @@ const GridFormat = ({
           >
             <Box
               sx={{
+                display: "flex",
+                justifyContent: "center",
                 position: "relative",
-                translate: 'transform 0.3s ease',
-                overflowY: "hidden",
-                '&:hover':{
-                  cursor:'pointer'
+                translate: "transform 0.3s ease",
+                overflow: "hidden",
+                "&:hover": {
+                  cursor: "pointer",
                 },
-                '&:hover  .icon-box' : {
-                  transform: 'translateY(-100px)'
-                }
+                "&:hover  .icon-box": {
+                  transform: "translateY(-100px)",
+                },
               }}
             >
               <Card
@@ -46,7 +49,7 @@ const GridFormat = ({
                   width: 200,
                   height: 250,
                   overflow: "hidden",
-                  boxShadow: "none"
+                  boxShadow: "none",
                 }}
               >
                 <CardMedia
@@ -55,8 +58,7 @@ const GridFormat = ({
                   height="100%"
                   width="100%"
                   image={product.image}
-                  style={{ objectFit: "scale-down"
-                }}
+                  style={{ objectFit: "scale-down" }}
                 />
                 <CardContent
                   className="icon-box"
@@ -99,12 +101,18 @@ const GridFormat = ({
             </Box>
 
             <CardContent sx={{ textAlign: "center" }}>
-              <Typography gutterBottom>
+              <Typography gutterBottom fontWeight={600}>
                 {product.title.substring(0, 20)}...
               </Typography>
-              <Typography sx={{ fontWeight: "600" }}>
-                $ {product.price}
-              </Typography>
+              <Stack direction="row" spacing={2} sx={{ mb: 1, justifyContent:'center' }}>
+                <Typography fontWeight={500}>$ {product.price}</Typography>
+                <Typography
+                  fontWeight={500}
+                  sx={{ color: "gray", textDecoration: "line-through" }}
+                >
+                  $ {product.price * 1.5}
+                </Typography>
+              </Stack>
             </CardContent>
           </Card>
         </Grid>

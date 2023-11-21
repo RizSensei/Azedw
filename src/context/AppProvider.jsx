@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
@@ -10,17 +11,27 @@ const AppProvider = ({ children }) => {
   const handleAddToWishlist = (product) => {
     let item = wishlistItems.find((item) => item.id === product.id);
     if (item) {
-      // return toast.error("This product has already been added");
+      return toast.error("This product has already been added");
     }
-    setWishlistItems((wishlistItems) => [...wishlistItems, {...product, inWishlist: true}]);
-      // return toast.success("Product added to Wislist");
+    setWishlistItems((wishlistItems) => [
+      ...wishlistItems,
+      { ...product, inWishlist: true },
+    ]);
+    return toast.success("Product added to Wislist");
   };
 
   const handleAddToCart = (product) => {
+    // console.log("button clicked")
     let item = cartItems.find((item) => item.id === product.id);
     if (item) {
-      setCartItems((cartItems) => cartItems.map((item) => item.id === product.id ? {...item, quantity: item.quantity + 1} : item));
-    }else{
+      setCartItems((cartItems) =>
+        cartItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
       setCartItems((cartItems) => [...cartItems, { ...product, quantity: 1 }]);
     }
   };

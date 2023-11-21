@@ -32,7 +32,7 @@ const WishList = () => {
   return (
     <Layout>
       <Topbar text="My Wishlist" />
-      <Box sx={{ p: 10 }}>
+      <Box sx={{ p: {xs:2, md:10} }}>
         {!isMobile ? 
         <WishlistDesktop handleAddToCart={handleAddToCart} wishlistItems={wishlistItems} setWishlistItems={setWishlistItems} onDeleteClick={onDeleteClick}/>
         :

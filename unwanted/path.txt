@@ -1,0 +1,67 @@
+cd React-BIY\MUI_ecomm\mui_ecomm\src\json
+
+json-server --watch user.json
+
+const {productsList,filteredProducts,setFilteredProducts} = useContext(ProductContext)
+
+  const {
+    wishlistItems,
+    cartItems,
+    handleAddToWishlist,
+    handleAddToCart,
+    cartItemsCount,
+  } = useContext(AppContext);
+
+  // fetch and collect categories
+  // useEffect(() => {
+  //   const categories = [
+  //     ...new Set(productsList.map((product) => product.category)),
+  //   ];
+  //   setCategoriesList(categories);
+  // }, []);
+  // console.log(categoriesList)
+
+
+  sign up form
+
+  // const [signUpCredentials, setSignUpCredentials] = useState({
+  //   username: "",
+  //   password: "",
+  // });
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:3000/users",
+  //       signUpCredentials
+  //     );
+  //     if (response.status == 201) {
+  //       setSignUpCredentials({
+  //           username: "",
+  //           password: ""
+  //       });
+  //       return toast.success("User Registered Successfully");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:" + error);
+  //   }
+  // };
+
+// value={signUpCredentials.username}
+            // onChange={(e) =>
+            //   setSignUpCredentials({
+            //     ...signUpCredentials,
+            //     username: e.target.value,
+            //   })
+            // }
+
+
+            
+            // value={signUpCredentials.password}
+            // onChange={(e) =>
+            //   setSignUpCredentials({
+            //     ...signUpCredentials,
+            //     password: e.target.value,
+            //   })
+            // }

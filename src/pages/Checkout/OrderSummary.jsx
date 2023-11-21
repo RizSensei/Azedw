@@ -19,7 +19,7 @@ const OrderSummary = () => {
   const total = cart.data.cart?.reduce((prevValue, currValue) => {
     return prevValue + currValue.quantity * currValue.price;
   }, 0);
-  const delivery_charge = 15.0;
+  const delivery_charge = (15.00).toFixed(2);
   const discount = parseFloat(0.2 * total).toFixed(2);
   const total_exc_tax = parseFloat(total - discount).toFixed(2);
   const tax = parseFloat(0.15 * total_exc_tax).toFixed(2);
@@ -77,7 +77,7 @@ const OrderSummary = () => {
           </Box>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <Typography>Discount</Typography>
-            <Typography>${discount}</Typography>
+            <Typography sx={{ color:'red' }}>${discount}</Typography>
           </Box>
         </Box>
         <Box sx={{ color: "gray" }}>

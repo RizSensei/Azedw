@@ -20,7 +20,7 @@ const Address = () => {
           </Grid>
           <Grid item xs={8}>
             <Typography sx={{ fontWeight: "600" }}>Office Address</Typography>
-            <Typography sx={{ color: "gray" }}>
+            <Typography sx={{ color: "gray", fontSize:'15px' }}>
               Ailded frame showed a lady fitted out with fur hat <br/> and fur boa who
               sat upright
             </Typography>
@@ -35,7 +35,7 @@ const Address = () => {
           </Grid>
           <Grid item xs={8}>
             <Typography sx={{ fontWeight: "600" }}>Phone number</Typography>
-            <Typography sx={{ color: "gray" }}>
+            <Typography sx={{ color: "gray", fontSize:'15px' }}>
               54875465-65741895-6547 <br /> 2222-3333-4444-555
             </Typography>
           </Grid>
@@ -49,7 +49,7 @@ const Address = () => {
           </Grid>
           <Grid item xs={8}>
             <Typography sx={{ fontWeight: "600" }}>Email us</Typography>
-            <Typography sx={{ color: "gray" }}>
+            <Typography sx={{ color: "gray", fontSize:'15px' }}>
               Admin@mail.com <br />
               example@mail.com
             </Typography>
@@ -64,7 +64,7 @@ const Address = () => {
           </Grid>
           <Grid item xs={8}>
             <Typography sx={{ fontWeight: "600" }}>Office time</Typography>
-            <Typography sx={{ color: "gray" }}>
+            <Typography sx={{ color: "gray", fontSize:'15px' }}>
               10AM - 5 PM, Sunday closed
             </Typography>
           </Grid>

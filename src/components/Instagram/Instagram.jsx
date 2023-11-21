@@ -53,7 +53,7 @@ const Instagram = () => {
         <ImageList
           sx={{ width: "95%" }}
           xs={3}
-          rowHeight={useMediaQuery(theme.breakpoints.down("md")) ? 200 : 250}
+          rowHeight={useMediaQuery(theme.breakpoints.down("md")) ? 150 : 250}
           cols={useMediaQuery(theme.breakpoints.down("md")) ? 3 : 6}
         >
           {images.map((img, index) => (
