@@ -1,4 +1,4 @@
-cd React-BIY\MUI_ecomm\mui_ecomm\src\json
+cd React-BIY\MUI_ecomm\src\json
 
 json-server --watch user.json
 

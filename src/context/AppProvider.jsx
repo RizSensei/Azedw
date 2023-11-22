@@ -11,7 +11,7 @@ const AppProvider = ({ children }) => {
   const handleAddToWishlist = (product) => {
     let item = wishlistItems.find((item) => item.id === product.id);
     if (item) {
-      return toast.error("This product has already been added");
+      return toast.warning("This product has already been added");
     }
     setWishlistItems((wishlistItems) => [
       ...wishlistItems,
@@ -21,7 +21,6 @@ const AppProvider = ({ children }) => {
   };
 
   const handleAddToCart = (product) => {
-    // console.log("button clicked")
     let item = cartItems.find((item) => item.id === product.id);
     if (item) {
       setCartItems((cartItems) =>
@@ -31,8 +30,10 @@ const AppProvider = ({ children }) => {
             : item
         )
       );
+      return toast.success("Product quantity increased by 1")
     } else {
       setCartItems((cartItems) => [...cartItems, { ...product, quantity: 1 }]);
+      return toast.success("Product added to Cart");
     }
   };
 

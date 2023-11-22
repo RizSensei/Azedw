@@ -20,6 +20,7 @@ import { useTheme } from "@emotion/react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/features/userSlice";
 import RelatedProduct from "../../components/RelatedProduct/RelatedProduct";
+import { ToastContainer } from "react-toastify";
 
 const Desktop = ({ product, productsList }) => {
   const { title, image, description, price, rating } = product;
@@ -36,6 +37,7 @@ const Desktop = ({ product, productsList }) => {
 
   return (
     <>
+    <ToastContainer/>
       <Box sx={{ display: "flex", p: 10 }}>
         <Box sx={{ width: { xs: "100%", md: "50%" } }}>
           <CardMedia
@@ -80,6 +82,7 @@ const Desktop = ({ product, productsList }) => {
                 {description}
               </Typography>
 
+
               <Box sx={{ mb: 3 }}>
                 {cartItems?.some((item) => item.id === product.id) ? (
                     <Button
@@ -101,7 +104,8 @@ const Desktop = ({ product, productsList }) => {
                 }
               </Box>
 
-              {user?.isAuthenticated ? (
+                <>
+                {user?.isAuthenticated ? (
                 <Box sx={{ display: "flex" }}>
                   {wishlistItems.some((item) => item.id === product.id) ? (
                     <Button
@@ -134,6 +138,8 @@ const Desktop = ({ product, productsList }) => {
                   )}
                 </Box>
               ) : null}
+                </>
+              
             </ListItemText>
           </ListItem>
         </Box>

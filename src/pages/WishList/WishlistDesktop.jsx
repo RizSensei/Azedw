@@ -9,10 +9,10 @@ const WishlistDesktop = ({wishlistItems,handleAddToCart,onDeleteClick}) => {
             <TableHead>
               <TableRow>
                 <TableCell></TableCell>
-                <TableCell align="right">Image</TableCell>
+                <TableCell>Image</TableCell>
                 <TableCell>Product</TableCell>
-                <TableCell align="right">Price</TableCell>
-                <TableCell align="right">Action</TableCell>
+                <TableCell>Price</TableCell>
+                <TableCell>Action</TableCell>
               </TableRow>
             </TableHead>
             {wishlistItems.length > 0 ? (
@@ -31,7 +31,7 @@ const WishlistDesktop = ({wishlistItems,handleAddToCart,onDeleteClick}) => {
                         X
                       </Button>
                     </TableCell>
-                    <TableCell align="right">
+                    <TableCell>
                       <img
                         src={item.image}
                         alt={item.title}
@@ -40,8 +40,8 @@ const WishlistDesktop = ({wishlistItems,handleAddToCart,onDeleteClick}) => {
                       />
                     </TableCell>
                     <TableCell>{item.title}</TableCell>
-                    <TableCell align="right">${item.price}</TableCell>
-                    <TableCell align="right">
+                    <TableCell>${item.price}</TableCell>
+                    <TableCell>
                       <Button variant="contained" onClick={() => handleAddToCart(item)}>
                         <ShoppingBagOutlinedIcon/>
                       </Button>

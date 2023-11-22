@@ -34,11 +34,11 @@ const CartTableDesktop = ({
           <TableHead>
             <TableRow>
               <TableCell></TableCell>
-              <TableCell align="right" sx={{ fontWeight:"600" }}>Image</TableCell>
+              <TableCell sx={{ fontWeight:"600" }}>Image</TableCell>
               <TableCell sx={{ fontWeight:"600" }}>Product</TableCell>
-              <TableCell align="right" sx={{ fontWeight:"600" }}>Price</TableCell>
-              <TableCell align="right" sx={{ fontWeight:"600" }}>Quantity</TableCell>
-              <TableCell align="right" sx={{ fontWeight:"600" }}>Total</TableCell>
+              <TableCell sx={{ fontWeight:"600" }}>Price</TableCell>
+              <TableCell sx={{ fontWeight:"600" }}>Quantity</TableCell>
+              <TableCell sx={{ fontWeight:"600" }}>Total</TableCell>
             </TableRow>
           </TableHead>
           {cartItems.length > 0 ? (
@@ -57,7 +57,7 @@ const CartTableDesktop = ({
                       X
                     </Button>
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell>
                     <Card
                       style={{
                         width: 80,
@@ -79,8 +79,8 @@ const CartTableDesktop = ({
                     </Card>
                   </TableCell>
                   <TableCell>{item.title}</TableCell>
-                  <TableCell align="right">${item.price}</TableCell>
-                  <TableCell align="right">
+                  <TableCell>${item.price}</TableCell>
+                  <TableCell>
                     <Stack direction="row" spacing={2}>
                       <IconButton
                         size="small"
@@ -102,7 +102,7 @@ const CartTableDesktop = ({
                       </IconButton>
                     </Stack>
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell>
                     ${item.price * item.quantity}
                   </TableCell>
                 </TableRow>
@@ -129,7 +129,7 @@ const CartTableDesktop = ({
       </TableContainer>
       <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 5 }}>
         <Box>
-          <Typography sx={{ fontWeight: "600", color: "gray" }}>
+          <Typography sx={{ fontWeight: "600", color: "gray", display:'flex', justifyContent:"flex-end", mb:2 }}>
             Total: $
             {cartItems?.reduce((prevValue, currValue) => {
               return prevValue + currValue.quantity * currValue.price;

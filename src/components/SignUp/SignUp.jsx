@@ -53,7 +53,7 @@ const SignUp = ({userData}) => {
 
   return (
     <Card sx={{ width: { xs: "100%", md: "50%" }, p: 5, mb: 2 }}>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <Typography sx={{ fontWeight: "600" }}>SignUp</Typography>
       <form onSubmit={handleSubmit}>
         <Box sx={{ my: 3 }}>
