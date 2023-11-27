@@ -13,6 +13,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
+import { GlassMagnifier, SideBySideMagnifier } from "react-image-magnifiers";
 import React, { useContext, useEffect, useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { AppContext } from "../../context/AppProvider";
@@ -37,21 +38,25 @@ const Desktop = ({ product, productsList }) => {
 
   return (
     <>
-    <ToastContainer/>
-      <Box sx={{ display: "flex", p: 10 }}>
-        <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-          <CardMedia
-            component="img"
-            height="100%"
-            image={image}
-            alt={title}
-            sx={{
-              objectFit: "scale-down",
-              p: 1,
-            }}
+      <ToastContainer />
+      <Box sx={{ display: "flex", px: 2, py: 10 }}>
+        <Box
+          sx={{
+            width: { xs: "100%", md: "50%" },
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+          }}
+        >
+          <SideBySideMagnifier
+            imageSrc={image}
+            imageAlt={title}
+            largeImageSrc={image}
+            style={{ width: "300px" }}
+            zoomContainerBorder="none"
           />
         </Box>
-        <Box sx={{ width: { xs: "100%", md: "50%" }, display: "flex" }}>
+        <Box sx={{ width: { xs: "100%", md: "80%" }, display: "flex" }}>
           <ListItem>
             <ListItemText sx={{ px: 10 }}>
               <Typography sx={{ mb: 1 }} variant="h3" fontWeight={500}>
@@ -76,70 +81,67 @@ const Desktop = ({ product, productsList }) => {
                   <Rating name="read-only" value={rating.rate} readOnly />
                 </Typography>
                 <Typography>({rating.count} Customer review)</Typography>
+
+                {user?.isAuthenticated ? (
+                  <Box sx={{ display: "flex" }}>
+                    {wishlistItems.some((item) => item.id === product.id) ? (
+                      <Button
+                        variant="text"
+                        startIcon={<FavoriteBorderIcon />}
+                        sx={{
+                          // bgcolor: "white",
+                          color: "red",
+                          border: 0,
+                        }}
+                      ></Button>
+                    ) : (
+                      <Button
+                        onClick={() => handleAddToWishlist(product)}
+                        variant="text"
+                        startIcon={<FavoriteBorderIcon />}
+                        sx={{
+                          color: "black",
+                          border: 0,
+                          p: 0,
+                          "&:hover": {
+                            color: "red",
+                            bgcolor: "white",
+                            // bgcolor: "red",
+                          },
+                        }}
+                      ></Button>
+                    )}
+                  </Box>
+                ) : null}
               </Stack>
 
               <Typography fontSize={14} sx={{ color: "gray", mb: 3 }}>
                 {description}
               </Typography>
 
-
               <Box sx={{ mb: 3 }}>
                 {cartItems?.some((item) => item.id === product.id) ? (
-                    <Button
-                      // disabled
-                      variant="contained"
-                      sx={{ bgcolor: "#22c55e", color: "white", fontWeight:'600' }}
-                    >
-                      Added
-                    </Button>
-                  ) : (
-                    <Button
-                      onClick={() => handleAddToCart(product)}
-                      variant="contained"
-                      sx={{ bgcolor: "black", color: "white" }}
-                    >
-                      Add To Cart
-                    </Button>
-                  )
-                }
+                  <Button
+                    // disabled
+                    variant="contained"
+                    sx={{
+                      bgcolor: "#22c55e",
+                      color: "white",
+                      fontWeight: "600",
+                    }}
+                  >
+                    Added
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => handleAddToCart(product)}
+                    variant="contained"
+                    sx={{ bgcolor: "black", color: "white" }}
+                  >
+                    Add To Cart
+                  </Button>
+                )}
               </Box>
-
-                <>
-                {user?.isAuthenticated ? (
-                <Box sx={{ display: "flex" }}>
-                  {wishlistItems.some((item) => item.id === product.id) ? (
-                    <Button
-                      variant="outlined"
-                      startIcon={<FavoriteBorderIcon />}
-                      sx={{
-                        bgcolor: "red",
-                        color: "white",
-                        border: 0,
-                      }}
-                    >
-                      <Typography>In Wishlist</Typography>
-                    </Button>
-                  ) : (
-                    <Button
-                      onClick={() => handleAddToWishlist(product)}
-                      variant="outlined"
-                      startIcon={<FavoriteBorderIcon />}
-                      sx={{
-                        color: "black",
-                        border: 0,
-                        "&:hover": {
-                          color: "white",
-                          bgcolor: "red",
-                        },
-                      }}
-                    >
-                      <Typography>Add To Wishlist</Typography>
-                    </Button>
-                  )}
-                </Box>
-              ) : null}
-                </>
-              
             </ListItemText>
           </ListItem>
         </Box>

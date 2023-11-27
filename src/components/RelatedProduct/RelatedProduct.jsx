@@ -55,7 +55,8 @@ const RelatedProduct = ({ product, productsList }) => {
                     cursor: "pointer",
                   },
                   "&:hover  .icon-box": {
-                    transform: "translateY(-100px)",
+                    bottom:'50%',
+                    transform: "translate(-50%, 50%)",
                   },
                 }}
               >
@@ -75,8 +76,9 @@ const RelatedProduct = ({ product, productsList }) => {
                     className="icon-box"
                     sx={{
                       position: "absolute",
-                      bottom: "-90px",
-                      width: "100%",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      transition:"transform 0.3s ease"
                     }}
                   >
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -109,7 +111,7 @@ const RelatedProduct = ({ product, productsList }) => {
                   </CardContent>
               </Card>
 
-              <CardContent sx={{ textAlign: "center" }}>
+              <CardContent sx={{  }}>
                   <Typography gutterBottom>{product.title}</Typography>
                   <Typography sx={{ fontWeight: "600" }}>
                     $ {product.price}

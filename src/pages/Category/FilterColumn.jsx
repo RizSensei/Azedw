@@ -82,9 +82,10 @@ const FilterColumn = ({ productsList, setFilteredProducts }) => {
                   >
                     <ListItemButton
                       sx={{
-                        bgcolor: category === selectedCategory ? "gray" : "",
+                        bgcolor: category === selectedCategory ? "#d1d5db" : "",
                         color:
                           category === selectedCategory ? "white" : "black",
+                          
                         "&:hover": {
                           bgcolor: category === selectedCategory ? "gray" : "",
                           color:
@@ -93,7 +94,7 @@ const FilterColumn = ({ productsList, setFilteredProducts }) => {
                         borderRadius: "2px",
                       }}
                     >
-                      <ListItemText secondary={category} />
+                      <ListItemText secondary={category} sx={{ fontWeight:'600' }}/>
                     </ListItemButton>
                   </ListItem>
                 ))}

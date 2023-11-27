@@ -40,7 +40,8 @@ const GridFormat = ({
                   cursor: "pointer",
                 },
                 "&:hover  .icon-box": {
-                  transform: "translateY(-100px)",
+                  bottom: "50%", 
+                  transform: "translate(-50%, 50%)", 
                 },
               }}
             >
@@ -64,12 +65,12 @@ const GridFormat = ({
                   className="icon-box"
                   sx={{
                     position: "absolute",
-                    // bottom: "20px",
-                    bottom: "-90px",
-                    width: "100%",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    transition: "transform 0.3s ease",
                   }}
                 >
-                  <Box sx={{ display: "flex", justifyContent: "center" }}>
+                  <Box sx={{ display: "flex" }}>
                     <Link to={`/menu/${product.id}`}>
                       <IconButton
                         icon={<VisibilityOutlinedIcon fontSize="1rem" />}
@@ -104,13 +105,17 @@ const GridFormat = ({
               <Typography gutterBottom fontWeight={600}>
                 {product.title.substring(0, 20)}...
               </Typography>
-              <Stack direction="row" spacing={2} sx={{ mb: 1, justifyContent:'center' }}>
+              <Stack
+                direction="row"
+                spacing={2}
+                sx={{ mb: 1, justifyContent: "center" }}
+              >
                 <Typography fontWeight={500}>$ {product.price}</Typography>
                 <Typography
                   fontWeight={500}
                   sx={{ color: "gray", textDecoration: "line-through" }}
                 >
-                  $ {product.price * 1.5}
+                  $ {(product.price * 1.5).toFixed(2)}
                 </Typography>
               </Stack>
             </CardContent>

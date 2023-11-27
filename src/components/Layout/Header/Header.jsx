@@ -36,7 +36,7 @@ const Header = () => {
           bgcolor: "white",
           color: "black",
           p: 3,
-          borderBottom: "1px solid white",
+          borderBottom: "1px solid gray",
         }}
       >
         <Box sx={{ display: "flex" }} justifyContent="space-between">

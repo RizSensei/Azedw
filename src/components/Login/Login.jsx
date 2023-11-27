@@ -20,31 +20,7 @@ const Login = ({ userData }) => {
     defaultMatches: true,
   });
 
-  // const [loginCredentials, setLoginCredentials] = useState({
-  //   username: "",
-  //   password: "",
-  // });
-
   const dispatch = useDispatch();
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   let existing_user = userData.find(
-  //     (user) =>
-  //       loginCredentials.username === user.username &&
-  //       loginCredentials.password === user.password
-  //   );
-  //   if (existing_user) {
-  //     dispatch(
-  //       login({
-  //         username: loginCredentials.username,
-  //         password: loginCredentials.password,
-  //       })
-  //     );
-  //   } else {
-  //     return toast.error("Invalid Credentials");
-  //   }
-  // };
 
   return (
     <Card sx={{ width: { xs: "100%", md: "50%" }, p: 5, mb: 2 }}>

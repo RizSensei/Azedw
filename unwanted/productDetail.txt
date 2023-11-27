@@ -1,0 +1,10 @@
+    {/* <CardMedia
+            component="img"
+            height="400px"
+            image={image}
+            alt={title}
+            sx={{
+              objectFit: "scale-down",
+              p: 1,
+            }}
+          /> */}
