@@ -33,7 +33,7 @@ const RelatedProduct = ({ product, productsList }) => {
     .slice(0, 4);
 
   return (
-    <Box sx={{ px: 15 }}>
+    <Box sx={{ px: {xs:5, md:15} }}>
       <Typography
         variant="h5"
         sx={{ textAlign: "center", fontWeight: "500", mb: 5 }}
@@ -44,9 +44,7 @@ const RelatedProduct = ({ product, productsList }) => {
         <Grid container rowSpacing={5} columnSpacing={{ xs: 1, sm: 2, md: 4 }}>
           {related_products?.map((product) => (
             <Grid item key={product.id} xs={6} sm={6} md={3}>
-              <Card
-              style={{ width: 200,
-                height: 250, }}
+              <Card style={{ width: 200, height: 250, }}
                 sx={{
                   position: "relative", 
                   overflowY: "hidden" ,

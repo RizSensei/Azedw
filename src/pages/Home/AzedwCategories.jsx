@@ -27,8 +27,9 @@ const AzedwCategories = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        px: {xs:5, md:10},
+        px: {xs:2, md:10},
         py: 5,
+        mt: 10
       }}
     >
       <Typography variant="h4" fontWeight="500">

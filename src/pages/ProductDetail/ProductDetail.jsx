@@ -50,7 +50,7 @@ const ProductDetail = () => {
       {!isMobile ? (
         <Desktop product={product} productsList={productsList}/>
       ) : (
-        <Mobile  product={product}/>
+        <Mobile  product={product} productsList={productsList}/>
       )}
     </Layout>
   );

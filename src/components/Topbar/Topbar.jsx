@@ -12,7 +12,7 @@ const Topbar = ({text}) => {
     <>
       <Box
         sx={{
-          height: isMobile ? '30vh': '45vh',
+          height: '45vh',
           bgcolor: "#e5e7eb",
           display: "flex",
           justifyContent: "center",

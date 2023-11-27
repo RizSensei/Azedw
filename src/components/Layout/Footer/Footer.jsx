@@ -17,10 +17,10 @@ const Footer = () => {
               <Typography sx={{ mb: 2 }}>
                 Get timely updates from your favorite products
               </Typography>
-              <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Box sx={{ display: "flex"}}>
                 <TextField
                   label="Email Address"
-                  variant="outlined"
+                  variant="filled"
                   size="small"
                   required
                 />

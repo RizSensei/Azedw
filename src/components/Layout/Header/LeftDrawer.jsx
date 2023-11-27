@@ -9,6 +9,7 @@ import {
   Input,
   InputAdornment,
   ListItem,
+  useMediaQuery,
 } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -16,13 +17,20 @@ import PinterestIcon from "@mui/icons-material/Pinterest";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Link } from "react-router-dom";
+import { useTheme } from "@emotion/react";
 
 const LeftDrawer = ({ isDrawerOpen, toggleDrawer }) => {
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"), {
+    defaultMatches: true,
+  });
+
   return (
     <Drawer anchor="left" open={isDrawerOpen} onClose={toggleDrawer}>
       <Box
         sx={{
-          width: "400px",
+          width: {xs:"300px", md:"400px"},
           height: "100%",
           display: "flex",
           flexDirection: "column",

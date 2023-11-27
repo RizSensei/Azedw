@@ -13,7 +13,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { GlassMagnifier, SideBySideMagnifier } from "react-image-magnifiers";
+// import { GlassMagnifier, SideBySideMagnifier } from "react-image-magnifiers";
 import React, { useContext, useEffect, useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { AppContext } from "../../context/AppProvider";
@@ -22,6 +22,17 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/features/userSlice";
 import RelatedProduct from "../../components/RelatedProduct/RelatedProduct";
 import { ToastContainer } from "react-toastify";
+import {
+  Magnifier,
+  GlassMagnifier,
+  SideBySideMagnifier,
+  PictureInPictureMagnifier,
+  MOUSE_ACTIVATION,
+  TOUCH_ACTIVATION,
+  MagnifierContainer,
+  MagnifierZoom,
+  MagnifierPreview,
+} from "@niklasmaki/react-image-magnifiers";
 
 const Desktop = ({ product, productsList }) => {
   const { title, image, description, price, rating } = product;
@@ -39,7 +50,7 @@ const Desktop = ({ product, productsList }) => {
   return (
     <>
       <ToastContainer />
-      <Box sx={{ display: "flex", px: 2, py: 10 }}>
+      <Box sx={{ display: "flex", px: 2, pt: 7, pb: 15 }}>
         <Box
           sx={{
             width: { xs: "100%", md: "50%" },
@@ -48,13 +59,31 @@ const Desktop = ({ product, productsList }) => {
             alignContent: "center",
           }}
         >
-          <SideBySideMagnifier
+          <Magnifier
+            imageSrc={image}
+            style={{ width: "400px" }}
+            imageAlt={title}
+            largeImageSrc={image}
+          />
+
+          {/* <SideBySideMagnifier
             imageSrc={image}
             imageAlt={title}
             largeImageSrc={image}
-            style={{ width: "300px" }}
+            style={{ width: "400px" }}
             zoomContainerBorder="none"
-          />
+            overlayBoxOpacity={0.1}
+            fillAvailableSpace= {false}
+          /> */}
+
+          {/* <MagnifierContainer style={{ width:'100%' }}>
+            <div style={{ width: "300px" }}>
+              <MagnifierPreview imageSrc={image} />
+            </div>
+            <div>
+              <MagnifierZoom style={{ height: "400px" }} imageSrc={image} />
+            </div>
+          </MagnifierContainer> */}
         </Box>
         <Box sx={{ width: { xs: "100%", md: "80%" }, display: "flex" }}>
           <ListItem>
