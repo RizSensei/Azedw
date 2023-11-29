@@ -59,22 +59,27 @@ const Desktop = ({ product, productsList }) => {
             alignContent: "center",
           }}
         >
-          <Magnifier
+          {/* <Magnifier
             imageSrc={image}
             style={{ width: "400px" }}
             imageAlt={title}
             largeImageSrc={image}
-          />
-
-          {/* <SideBySideMagnifier
-            imageSrc={image}
-            imageAlt={title}
-            largeImageSrc={image}
-            style={{ width: "400px" }}
-            zoomContainerBorder="none"
-            overlayBoxOpacity={0.1}
-            fillAvailableSpace= {false}
           /> */}
+
+          <SideBySideMagnifier
+            imageSrc={image}
+            imageAlt={title}
+            largeImageSrc={image}
+            style={{ width: "350px" }}
+            zoomContainerBorder="none"
+            overlayBoxOpacity={0.8}
+            overlayOpacity={0.5}
+            fillAvailableSpace={false}
+            fillGapLeft={20}
+            fillGapRight={20}
+            fillGapTop={20}
+            fillGapBottom={20}
+          />
 
           {/* <MagnifierContainer style={{ width:'100%' }}>
             <div style={{ width: "300px" }}>

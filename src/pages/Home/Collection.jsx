@@ -1,10 +1,12 @@
 import { useTheme } from "@emotion/react";
-import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import React from "react";
+import Collection_lg from "./Collection_lg";
+import Collection_xs from "./Collection_xs";
 
 const Collection = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"), {
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"), {
     defaultMatches: true,
   });
 
@@ -25,53 +27,7 @@ const Collection = () => {
       title: "Wool Sweater",
     },
   ];
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        mt: 10,
-        overflowX: { xs: "scroll", md: "hidden" },
-      }}
-      columnGap={2}
-    >
-      {images?.map((img, index) =>
-        
-          <Box
-            key={index}
-            sx={{
-              position: "relative",
-              "&:nth-child(2)": {
-                bottom: 30,
-              },
-            }}
-          >
-            <img src={img.image} alt={img.title} height={550} />
-            <Stack
-              orientation="vertical"
-              sx={{
-                bgcolor: "white",
-                p: 5,
-                position: "absolute",
-                bottom: 50,
-                left: 50,
-              }}
-            >
-              <Typography sx={{ fontWeight: "600" }}>{img.title}</Typography>
-              <Typography
-                sx={{
-                  color: "gray",
-                  fontSize: "10px",
-                  textDecoration: "underline",
-                }}
-              >
-                SHOP NOW
-              </Typography>
-            </Stack>
-          </Box>
-      )}
-    </Box>
-  );
+  return <>{isMobile ? <Collection_xs images={images} isMobile={isMobile}/> : <Collection_lg images={images}/>}</>;
 };
 
 export default Collection;
