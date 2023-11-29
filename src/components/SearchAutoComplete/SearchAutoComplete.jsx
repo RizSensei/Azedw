@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const SearchAutoComplete = () => {
   const { productsList } = useContext(ProductContext);
-  const items = productsList;
+  const items = [];
 
   const [searchText, setSearchText] = useState("");
   const navigate = useNavigate();
