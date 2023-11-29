@@ -25,111 +25,100 @@ const CartTableDesktop = ({
   onDecreaseClick,
   onIncreaseClick,
   onDeleteClick,
-  handleCartToCheckout
+  handleCartToCheckout,
 }) => {
-  return (
+  return cartItems.length > 0 ? (
     <>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }}>
           <TableHead>
             <TableRow>
               <TableCell></TableCell>
-              <TableCell sx={{ fontWeight:"600" }}>Image</TableCell>
-              <TableCell sx={{ fontWeight:"600" }}>Product</TableCell>
-              <TableCell sx={{ fontWeight:"600" }}>Price</TableCell>
-              <TableCell sx={{ fontWeight:"600" }}>Quantity</TableCell>
-              <TableCell sx={{ fontWeight:"600" }}>Total</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Image</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Product</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Price</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Quantity</TableCell>
+              <TableCell sx={{ fontWeight: "600" }}>Total</TableCell>
             </TableRow>
           </TableHead>
-          {cartItems.length > 0 ? (
-            <TableBody>
-              {cartItems?.map((item, index) => (
-                <TableRow key={index}>
-                  <TableCell>
-                    <Button
-                      onClick={() => onDeleteClick(item)}
+
+          <TableBody>
+            {cartItems?.map((item, index) => (
+              <TableRow key={index}>
+                <TableCell>
+                  <Button
+                    onClick={() => onDeleteClick(item)}
+                    sx={{
+                      color: "red",
+                      fontWeight: "600",
+                      cursor: "pointer",
+                    }}
+                  >
+                    X
+                  </Button>
+                </TableCell>
+                <TableCell>
+                  <Card
+                    style={{
+                      width: 80,
+                      height: 120,
+                      overflow: "hidden",
+                      boxShadow: "none",
+                    }}
+                  >
+                    <CardMedia
                       sx={{
-                        color: "red",
-                        fontWeight: "600",
-                        cursor: "pointer",
+                        height: "100%",
+                        width: "100%",
+                        objectFit: "scale-down",
                       }}
+                      component="img"
+                      image={item.image}
+                      alt={item.title}
+                    />
+                  </Card>
+                </TableCell>
+                <TableCell>{item.title}</TableCell>
+                <TableCell>${item.price}</TableCell>
+                <TableCell>
+                  <Stack direction="row" spacing={2}>
+                    <IconButton
+                      size="small"
+                      onClick={() => onDecreaseClick(item)}
+                      disabled={item.quantity === 1}
                     >
-                      X
-                    </Button>
-                  </TableCell>
-                  <TableCell>
-                    <Card
-                      style={{
-                        width: 80,
-                        height: 120,
-                        overflow: "hidden",
-                        boxShadow: "none",
-                      }}
+                      -
+                    </IconButton>
+                    <TextField
+                      value={item.quantity}
+                      size="small"
+                      sx={{ width: "44px" }}
+                    />
+                    <IconButton
+                      size="small"
+                      onClick={() => onIncreaseClick(item)}
                     >
-                      <CardMedia
-                        sx={{
-                          height: "100%",
-                          width: "100%",
-                          objectFit: "scale-down",
-                        }}
-                        component="img"
-                        image={item.image}
-                        alt={item.title}
-                      />
-                    </Card>
-                  </TableCell>
-                  <TableCell>{item.title}</TableCell>
-                  <TableCell>${item.price}</TableCell>
-                  <TableCell>
-                    <Stack direction="row" spacing={2}>
-                      <IconButton
-                        size="small"
-                        onClick={() => onDecreaseClick(item)}
-                        disabled={item.quantity === 1}
-                      >
-                        -
-                      </IconButton>
-                      <TextField
-                        value={item.quantity}
-                        size="small"
-                        sx={{ width: "44px" }}
-                      />
-                      <IconButton
-                        size="small"
-                        onClick={() => onIncreaseClick(item)}
-                      >
-                        +
-                      </IconButton>
-                    </Stack>
-                  </TableCell>
-                  <TableCell>
-                    ${item.price * item.quantity}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          ) : (
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                p: 10,
-              }}
-            >
-              <Typography
-                variant="h5"
-                sx={{ fontWeight: "600", color: "gray" }}
-              >
-                No items in the cart
-              </Typography>
-            </Box>
-          )}
+                      +
+                    </IconButton>
+                  </Stack>
+                </TableCell>
+                <TableCell>${item.price * item.quantity}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
         </Table>
       </TableContainer>
       <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 5 }}>
         <Box>
-          <Typography sx={{ fontWeight: "600", color: "gray", display:'flex', justifyContent:"flex-end", mb:2 }}>
+          <Typography
+            sx={{
+              fontWeight: "600",
+              color: "gray",
+              display: "flex",
+              justifyContent: "flex-end",
+              mb: 2,
+            }}
+          >
             Total: $
             {cartItems?.reduce((prevValue, currValue) => {
               return prevValue + currValue.quantity * currValue.price;
@@ -153,6 +142,23 @@ const CartTableDesktop = ({
         </Box>
       </Box>
     </>
+  ) : (
+    <>
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        p: 1,
+      }}
+    >
+      <img
+        src="https://aleointernational.com/img/empty-cart-yellow.png"
+        alt=""
+      />
+    </Box>
+    </>
+    
   );
 };
 

@@ -54,7 +54,7 @@ const Form = ({theme}) => {
             <TextareaAutosize
               minRows={12}
               placeholder="Enter your text here"
-              style={{ width: "100%" }}
+              style={{ width: "100%", padding:'12px' }}
             />
           </Grid>
           <Button variant="contained" sx={{ bgcolor: "#3b82f6" }}>

@@ -58,7 +58,9 @@ const Header = () => {
                 }
               />
             </FormControl> */}
-            <SearchAutoComplete/>
+
+            
+            {/* <SearchAutoComplete/> */}
           </Box>
 
           <NavigationMenu/>
