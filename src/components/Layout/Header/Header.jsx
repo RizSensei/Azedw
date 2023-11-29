@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LeftDrawer from "./LeftDrawer";
 import NavigationMenu from "./NavigationMenu";
 import TrackerButtons from "./TrackerButtons";
+import SearchAutoComplete from "../../SearchAutoComplete/SearchAutoComplete";
 import {
   Box,
   Typography,
@@ -46,7 +47,7 @@ const Header = () => {
               <MenuOutlinedIcon sx={{ color: "gray", mr: 2 }} />
             </Button>
 
-            <FormControl variant="standard" sx={{ display:{ xs:'none', md:'block' } }}>
+            {/* <FormControl variant="standard" sx={{ display:{ xs:'none', md:'block' } }}>
               <Input
                 id="input-with-icon-adornment"
                 placeholder="Search for...."
@@ -56,7 +57,8 @@ const Header = () => {
                   </InputAdornment>
                 }
               />
-            </FormControl>
+            </FormControl> */}
+            <SearchAutoComplete/>
           </Box>
 
           <NavigationMenu/>
